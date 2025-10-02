@@ -4,10 +4,12 @@ type Props = {
 };
 
 const ExternalLinkIcon = (props: Props) => {
-  const { className, size = 24 } = props;
+  const { className = "", size = 24 } = props;
   return (
     <svg
-      className={`h-${size} w-${size} ${className}`}
+      className={className}
+      width={size}
+      height={size}
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"

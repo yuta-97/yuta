@@ -8,7 +8,9 @@ const GraphQLIcon = (props: Props) => {
 
   return (
     <svg
-      className={`h-${size} w-${size} ${className}`}
+      className={className}
+      width={size}
+      height={size}
       viewBox="-16 0 288 288"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
