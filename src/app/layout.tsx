@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -15,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Yuta - Portfolio",
-  description: "Full Stack Developer & Creative Problem Solver",
+  description: "FE Developer & Creative Problem Solver",
   keywords: ["portfolio", "developer", "web development", "next.js", "react"],
   authors: [{ name: "Yuta" }],
   creator: "Yuta",
@@ -28,10 +29,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <SpeedInsights />
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-white text-gray-900 antialiased transition-colors duration-300 dark:bg-gray-900 dark:text-white`}
       >
+        <SpeedInsights />
+        <Analytics />
         {children}
       </body>
     </html>
