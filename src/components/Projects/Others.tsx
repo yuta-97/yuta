@@ -1,5 +1,5 @@
 import { Project } from ".";
-import ProjectCard from "../common/ProjectCard";
+import OtherProject from "./OtherProject";
 
 const OtherProjectsSection = (props: { projects: Project[] }) => {
   const { projects } = props;
@@ -10,7 +10,7 @@ const OtherProjectsSection = (props: { projects: Project[] }) => {
       </h3>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {projects.map(project => (
-          <ProjectCard key={project.id} {...project} featured={false} />
+          <OtherProject key={project.id} projectData={project} />
         ))}
       </div>
     </div>

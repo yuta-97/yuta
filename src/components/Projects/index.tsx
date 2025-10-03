@@ -8,10 +8,9 @@ type Project = {
   description: string;
   image?: string;
   technologies: string[];
-  liveUrl?: string;
+  link?: string;
   githubUrl?: string;
   featured?: boolean;
-  className?: string;
 };
 
 const PROJECTS: Project[] = [
@@ -28,8 +27,7 @@ const PROJECTS: Project[] = [
       "GraphQL",
       "i18n",
     ],
-    liveUrl: "https://dev.vnclever.com/",
-    githubUrl: "#",
+    link: "/project/clever-dent",
     featured: true,
   },
   {
@@ -44,22 +42,29 @@ const PROJECTS: Project[] = [
       "Tanstack-Query",
       "Styled-Component",
     ],
-    liveUrl: "#",
-    githubUrl: "#",
+    link: "/project/clever-manager",
     featured: true,
   },
   {
     id: 3,
+    title: "공용 컴포넌트 라이브러리 구축",
+    description:
+      "자사 제품 공통으로 사용하는 UI 컴포넌트 라이브러리를 구축하였고, Storybook을 활용해 문서화도 진행했습니다.",
+    technologies: ["React", "TypeScript", "Storybook", "Styled-Component"],
+    link: "/project/clever-ui",
+    featured: true,
+  },
+  {
+    id: 4,
     title: "통합 로그인 서비스",
     description:
       "메인 플랫폼의 계정을 통해 자사의 여러 서비스에 로그인이 가능하도록 하는 통합 로그인 기능을 개발했습니다. OIDC 오픈소스를 활용하여 구현했습니다.",
     technologies: ["TypeScript", "Node.js", "node-oidc-provider", "OAuth 2.0"],
-    liveUrl: "#",
-    githubUrl: "#",
-    featured: false,
+    link: "/project/clever-login",
+    featured: true,
   },
   {
-    id: 4,
+    id: 5,
     title: "SonarQube 도입 및 개발표준 정립",
     description:
       "기술부채 해결을 위해 SonarQube 도입을 주도하고, 팀 내 개발 표준 문서를 정립하여 코드 품질과 유지보수성을 향상시켰습니다.",
@@ -70,8 +75,7 @@ const PROJECTS: Project[] = [
       "Prettier",
       "Git Action",
     ],
-    liveUrl: "#",
-    githubUrl: "#",
+    link: "/project/sonarqube",
     featured: false,
   },
 ];
@@ -84,7 +88,7 @@ const Projects = () => {
     <Section
       id="projects"
       title="프로젝트"
-      subtitle="Clean Code와 사용자 경험을 고민하며 만든 프로젝트들입니다"
+      subtitle="실제 서비스 운영 중인 제품들을 만들며 겪은 기술적 도전과 문제 해결 과정을 담았습니다. 사용자 중심의 기능 개발부터 코드 품질 개선까지, 지속 가능한 소프트웨어를 만들기 위한 고민들을 소개합니다."
       background="gray"
     >
       <FeaturedProjectsSection projects={featuredProjects} />

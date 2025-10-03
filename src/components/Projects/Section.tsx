@@ -1,8 +1,9 @@
 import { Project } from ".";
-import ProjectCard from "../common/ProjectCard";
+import MainProjects from "./MainProject";
 
 const FeaturedProjectsSection = (props: { projects: Project[] }) => {
   const { projects } = props;
+
   return (
     <div className="mb-16">
       <h3 className="mb-8 text-2xl font-bold text-gray-900 dark:text-white">
@@ -10,7 +11,7 @@ const FeaturedProjectsSection = (props: { projects: Project[] }) => {
       </h3>
       <div className="grid gap-8 md:grid-cols-2">
         {projects.map(project => (
-          <ProjectCard key={project.id} {...project} featured={true} />
+          <MainProjects key={project.id} projectData={project} />
         ))}
       </div>
     </div>
