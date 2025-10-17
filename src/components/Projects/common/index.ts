@@ -5,3 +5,4 @@ export { default as TechStack } from "./TechStack";
 export { default as FeatureCard } from "./FeatureCard";
 export { default as KeyPoint } from "./KeyPoint";
 export { default as StoryCard } from "./StoryCard";
+export { default as ScreenshotGallery } from "./ScreenshotGallery";

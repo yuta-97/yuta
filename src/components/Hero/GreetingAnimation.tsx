@@ -26,7 +26,7 @@ const GreetingAnimation = () => {
         setCurrentIndex(prev => (prev + 1) % GREETINGS.length);
         setIsVisible(true);
       }, 300); // 페이드 아웃 시간
-    }, 2500); // 2.5초마다 변경
+    }, 2000); // 2.5초마다 변경
 
     return () => clearInterval(interval);
   }, []);

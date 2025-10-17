@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Project } from ".";
 import Button from "../common/Button";
 import TechTag from "../common/TechTag";
@@ -8,16 +9,27 @@ type Props = {
 
 const MainProjects = (props: Props) => {
   const { projectData } = props;
-  const { title, description, technologies, link, githubUrl } = projectData;
+  const { title, description, technologies, link, githubUrl, image } =
+    projectData;
 
   return (
     <div
       className={`group overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-gray-900`}
     >
       <div className="relative flex h-48 items-center justify-center overflow-hidden bg-gradient-to-r from-blue-400 to-purple-500">
-        <div className="text-6xl text-white transition-transform duration-300 group-hover:scale-110">
-          🖥️
-        </div>
+        {image ? (
+          <Image
+            src={image}
+            layout="contained"
+            width={200}
+            height={100}
+            alt=""
+          />
+        ) : (
+          <div className="text-6xl text-white transition-transform duration-300 group-hover:scale-110">
+            🖥️
+          </div>
+        )}
         <div className="absolute inset-0 bg-black/20 transition-colors duration-300 group-hover:bg-black/10" />
       </div>
       <div className="p-6">

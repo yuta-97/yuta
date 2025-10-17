@@ -17,6 +17,7 @@ const PROJECTS: Project[] = [
   {
     id: 1,
     title: "Clever-Dent (메인 서비스)",
+    image: "/dent-logo.svg",
     description:
       "치과 관리 플랫폼의 FE 개발을 담당했습니다. 환자관리, 예약, 전자 차트, 파일 첨부, 급여관리 등의 핵심 기능을 개발하고 국가별 특별 요구사항에 대응했습니다.",
     technologies: [
@@ -33,6 +34,7 @@ const PROJECTS: Project[] = [
   {
     id: 2,
     title: "Clever-Manager (Admin 서비스)",
+    image: "/manager-logo.svg",
     description:
       "관리자를 위한 백오피스 시스템 개발을 담당했습니다. 신규 가입, 병원별 기능제한, 공지사항, 구독기간 관리 등의 관리 기능을 구현했습니다.",
     technologies: [
@@ -65,6 +67,15 @@ const PROJECTS: Project[] = [
   },
   {
     id: 5,
+    title: "Zustand 기반 상태관리 리팩토링",
+    description:
+      "Context API의 복잡성을 해결하기 위해 Zustand로 전환하여 상태 흐름을 단순화하고 리렌더링을 최소화했습니다. 앱 성능과 개발 생산성 모두 향상시켰습니다.",
+    technologies: ["React", "TypeScript", "Zustand", "Context API"],
+    link: "/project/zustand-refactoring",
+    featured: false,
+  },
+  {
+    id: 6,
     title: "SonarQube 도입 및 개발표준 정립",
     description:
       "기술부채 해결을 위해 SonarQube 도입을 주도하고, 팀 내 개발 표준 문서를 정립하여 코드 품질과 유지보수성을 향상시켰습니다.",

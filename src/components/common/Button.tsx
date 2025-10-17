@@ -14,6 +14,7 @@ type Props = {
   href?: string;
   disabled?: boolean;
   type?: "button" | "submit" | "reset";
+  fullWidth?: boolean;
 };
 
 const Button = (props: Props) => {
@@ -26,6 +27,7 @@ const Button = (props: Props) => {
     href,
     disabled = false,
     type = "button",
+    fullWidth = false,
   } = props;
 
   const baseClasses =
@@ -48,7 +50,13 @@ const Button = (props: Props) => {
     lg: "px-8 py-4 text-lg rounded-xl",
   };
 
-  const classes = cn(baseClasses, variants[variant], sizes[size], className);
+  const classes = cn(
+    baseClasses,
+    variants[variant],
+    sizes[size],
+    fullWidth ? "w-full" : "",
+    className,
+  );
 
   if (href) {
     return (
