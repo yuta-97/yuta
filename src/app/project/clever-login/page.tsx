@@ -5,7 +5,6 @@ import {
   TechStack,
   FeatureCard,
   StoryCard,
-  KeyPoint,
 } from "@/components/Projects/common";
 
 const technologies = [
@@ -27,16 +26,27 @@ const FEATURES = [
 
 const EXPERIENCES = [
   {
-    title: "첫 개인 업무 - 통합로그인 시스템",
-    content: `입사 후 맡은 첫 개인 업무로 인증 서비스를 직접 구현하는 도전적인 과제.
+    title: "통합로그인 시스템",
+    content: `입사 후 맡은 첫 개인 업무로 인증 서비스를 직접 구현하는 도전적인 과제
 
-어려웠던 점:
-• 외부 API 활용 경험만 있던 상황에서 인증 서비스 직접 구현
+업무 참여 비중 : 100% (기술 리서치, 설계, 구현 전반)
+
+배경 및 동기 :
+• 기존에는 서비스 간 통합 로그인 미지원
+• 자사 서비스 간 원활한 사용자 경험 제공 필요성
+
+도전과제 :
+• 제한적인 자료와 정보 속에서 인증 서비스 직접 구현
+• OIDC와 OAuth 2.0 프로토콜의 개념 이해
+• 보안성과 사용성을 모두 고려한 시스템 설계
+
+어려웠던 점 :
+• 외부 인증 API 활용 경험만 있던 상황에서 인증 서비스 직접 구현
 • 제한적인 자료와 정보 속에서 혼자 진행해야 하는 부담
 • 기술 리서치부터 설계, 구현까지 전 과정 담당
 
-해낸 일!:
-• OIDC와 OAuth 2.0 프로토콜에 대한 깊은 이해 습득
+성과 및 학습 :
+• OIDC와 OAuth 2.0 프로토콜에 대한 이해
 • 독립적인 문제 해결 능력과 자신감 향상
 • 완성했을 때의 희열과 큰 성장을 경험`,
     type: "learning" as const,
@@ -64,8 +74,8 @@ const CleverLogin = () => {
           </p>
           <p className="leading-relaxed text-gray-700 dark:text-gray-300">
             OIDC-protocol과 OAuth2.0-protocol의 구현체인 oidc-provider
-            라이브러리를 적용하여 자사 서비스 간 seamless한 사용자 경험을
-            제공하는 통합 인증 시스템을 구축했습니다.
+            라이브러리를 활용하여 구현하였고, 자사 서비스 간 매끄러운 사용자
+            경험을 제공하는 통합 인증 시스템을 구축했습니다.
           </p>
         </div>
       </ProjectSection>
@@ -83,7 +93,7 @@ const CleverLogin = () => {
         </div>
       </ProjectSection>
 
-      <ProjectSection title="개발 경험과 성장">
+      <ProjectSection title="경험 및 성과">
         <div className="space-y-6">
           {EXPERIENCES.map((story, index) => (
             <StoryCard
@@ -96,24 +106,22 @@ const CleverLogin = () => {
         </div>
       </ProjectSection>
 
-      <ProjectSection title="핵심 성과 및 학습">
-        <div className="space-y-4">
-          <KeyPoint
-            title="프로토콜 전문성 습득"
-            description="OIDC와 OAuth 2.0 프로토콜에 대한 깊이 있는 이해와 실무 구현 경험"
-          />
-          <KeyPoint
-            title="독립적 문제 해결"
-            description="제한적인 자료 속에서 기술 리서치부터 설계, 구현까지 전 과정을 독립적으로 수행"
-          />
-          <KeyPoint
-            title="인증 시스템 설계"
-            description="보안성과 사용성을 모두 고려한 엔터프라이즈급 인증 시스템 아키텍처 설계"
-          />
-          <KeyPoint
-            title="첫 개인 프로젝트 완주"
-            description="입사 후 첫 개인 업무를 성공적으로 완료하며 자신감과 성장을 경험"
-          />
+      <ProjectSection title="관련 블로그 게시물">
+        <div className="prose dark:prose-invert max-w-none">
+          <p className="mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
+            성공적으로 구현 후 개인 기술 블로그에 상세 구현기를 작성하여
+            공유했습니다.
+          </p>
+          <p className="leading-relaxed text-gray-700 dark:text-gray-300">
+            <a
+              href="https://yuta-97.github.io/posts/Nodejs%EB%A1%9C-OAuth-%EC%9D%B8%EC%A6%9D%EC%84%9C%EB%B2%84-%EB%A7%8C%EB%93%A4%EA%B8%B0-oidc-provider/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline"
+            >
+              Nodejs로 OAuth 인증서버 만들기 with oidc-provider
+            </a>
+          </p>
         </div>
       </ProjectSection>
     </ProjectLayout>

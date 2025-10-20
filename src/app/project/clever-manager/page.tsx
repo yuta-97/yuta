@@ -3,6 +3,7 @@ import {
   ProjectHeader,
   ProjectLayout,
   ProjectSection,
+  ScreenshotGallery,
   StoryCard,
   TechStack,
 } from "@/components/Projects/common";
@@ -40,14 +41,13 @@ const EXPERIENCES = [
 업무 비중 : 100% (기획, 설계, 구현 전반)
 
 도전과 학습:
-• 웹 개발에서 데스크톱 앱 개발로의 패러다임 전환
 • Native 앱의 성능 최적화와 사용자 경험 고려
 • 파일 시스템 접근 및 로컬 데이터 처리 (CSV, Excel 파일 읽기/쓰기)
 • 다양한 운영체제 환경에서의 호환성 테스트 (Windows, macOS)
 • Electron의 Main Process와 Renderer Process 통신 구조 이해
 
 기술적 성과:
-• IPC(Inter-Process Communication)를 활용한 안전한 데이터 전송
+• IPC(Inter-Process Communication)를 활용한 데이터 전송
 • 대용량 파일 처리 시 UI 블로킹 방지 (Worker Thread 활용)
 • 자동 업데이트 기능으로 버전 관리 자동화`,
     type: "learning" as const,
@@ -77,13 +77,32 @@ const EXPERIENCES = [
   },
 ];
 
+const SCREEN_SHOTS = [
+  {
+    url: "/screenshots/manager-dashboard.png",
+    caption: "Clever-Manager 대시보드",
+  },
+  {
+    url: "/screenshots/manager-user.png",
+    caption: "병원 관리 페이지",
+  },
+  {
+    url: "/screenshots/manager-notice.png",
+    caption: "병원 공지 관리",
+  },
+  {
+    url: "/screenshots/migration.png",
+    caption: "환자 정보 Migration tool",
+  },
+];
+
 const CleverManager = () => {
   return (
     <ProjectLayout>
       <ProjectHeader
         title="Clever-Manager & 관리 도구"
         subtitle="치과 관리 시스템 및 데이터 마이그레이션 도구"
-        description="Clever-Dent를 사용하는 여러 치과를 관리하는 대리점/법인을 위한 관리 시스템과 기존 서비스에서 새로운 플랫폼으로의 데이터 마이그레이션을 지원하는 도구들입니다."
+        description="Clever-Dent를 사용하는 여러 치과를 관리하는 대리점/법인을 위한 관리 시스템과 기존 서비스에서 새로운 플랫폼으로의 데이터 마이그레이션을 지원하는 도구들을 제작 했습니다."
       />
 
       <ProjectSection title="기술 스택">
@@ -114,6 +133,9 @@ const CleverManager = () => {
             />
           ))}
         </div>
+      </ProjectSection>
+      <ProjectSection title="이미지">
+        <ScreenshotGallery screenshots={SCREEN_SHOTS} />
       </ProjectSection>
     </ProjectLayout>
   );

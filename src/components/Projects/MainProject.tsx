@@ -20,10 +20,10 @@ const MainProjects = (props: Props) => {
         {image ? (
           <Image
             src={image}
-            layout="contained"
             width={200}
             height={100}
             alt=""
+            className="object-contain"
           />
         ) : (
           <div className="text-6xl text-white transition-transform duration-300 group-hover:scale-110">

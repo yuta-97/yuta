@@ -3,7 +3,6 @@ import {
   ProjectHeader,
   ProjectSection,
   TechStack,
-  FeatureCard,
   KeyPoint,
   StoryCard,
 } from "@/components/Projects/common";
@@ -14,25 +13,6 @@ const TECHNOLOGIES = [
   "Storybook",
   "Emotion",
   "Styled-Components",
-];
-
-const COMPONENTS = [
-  {
-    name: "Switch",
-    description: "토글 기능을 제공하는 스위치 컴포넌트",
-  },
-  {
-    name: "CheckBox",
-    description: "다중 선택을 위한 체크박스 컴포넌트",
-  },
-  {
-    name: "Radio/RadioGroup",
-    description: "단일 선택을 위한 라디오 버튼 그룹",
-  },
-  {
-    name: "FileUploader",
-    description: "파일 업로드 기능을 제공하는 컴포넌트",
-  },
 ];
 
 const KEYFEATURES = [
@@ -123,18 +103,6 @@ const CleverUI = () => {
 
       <ProjectSection title="기술 스택">
         <TechStack technologies={TECHNOLOGIES} />
-      </ProjectSection>
-
-      <ProjectSection title="구현된 컴포넌트">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {COMPONENTS.map(component => (
-            <FeatureCard
-              key={component.name}
-              title={component.name}
-              description={component.description}
-            />
-          ))}
-        </div>
       </ProjectSection>
 
       <ProjectSection title="주요 특징">

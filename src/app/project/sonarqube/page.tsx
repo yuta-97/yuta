@@ -126,7 +126,7 @@ const SonarQubePage = () => {
         </div>
       </ProjectSection>
 
-      <ProjectSection title="주요 구현 내용">
+      <ProjectSection title="주요 성과">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           {FEATURES.map(feature => (
             <FeatureCard

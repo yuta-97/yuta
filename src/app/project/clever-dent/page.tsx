@@ -186,24 +186,36 @@ const CHALLENGES = [
 
 const SCREENSHOTS = [
   {
-    url: "/screenshots/clever-dent-dashboard.png",
-    caption: "대시보드 - 1",
+    url: "/screenshots/dent-dashboard.png",
+    caption: "대시보드 - 에인 화면",
   },
   {
-    url: "/screenshots/clever-dent-patient-list.png",
-    caption: "환자 목록 - 2",
+    url: "/screenshots/dent-patient-list.png",
+    caption: "환자 목록",
   },
   {
-    url: "/screenshots/clever-dent-chart.png",
-    caption: "전자 차트 - 4",
+    url: "/screenshots/dent-chart.png",
+    caption: "전자 차트",
   },
   {
-    url: "/screenshots/clever-dent-schedule.png",
-    caption: "예약 관리 - 5",
+    url: "/screenshots/dent-schedule-create.png",
+    caption: "예약 관리 - 신규 생성",
   },
   {
-    url: "/screenshots/clever-dent-file-explorer.png",
+    url: "/screenshots/dent-schedule.png",
+    caption: "예약 관리",
+  },
+  {
+    url: "/screenshots/dent-file.png",
     caption: "파일 관리 - X-Ray, CT 등 대용량 의료 이미지 처리 및 공유",
+  },
+  {
+    url: "/screenshots/playwright-report.png",
+    caption: "E2E 테스트 자동화 - Playwright 리포트 페이지",
+  },
+  {
+    url: "/screenshots/playwright-detail.png",
+    caption: "E2E 테스트 자동화 - Playwright 상세 페이지",
   },
 ];
 
@@ -246,7 +258,7 @@ const CleverDent = () => {
         </div>
       </ProjectSection>
 
-      <ProjectSection title="서비스 스크린샷">
+      <ProjectSection title="이미지">
         <ScreenshotGallery screenshots={SCREENSHOTS} />
       </ProjectSection>
     </ProjectLayout>

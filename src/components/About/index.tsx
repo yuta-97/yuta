@@ -10,10 +10,11 @@ const About = () => {
             About Me
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-300">
-            재미를 찾아 BE 에서 FE 로.
+            사용자 경험과 개발자 경험의 균형을 추구하는 프론트엔드 개발자입니다.
           </p>
           <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-300">
-            사용자 경험과 개발자 경험, 모두를 생각하는 개발자입니다.
+            익숙한 기술의 내부 동작 원리를 이해하고, 상황에 맞는 최선의 선택을
+            고민합니다.
           </p>
         </div>
 
