@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Project } from ".";
-import TechTag from "../common/TechTag";
+import { Project } from "./Project";
 
 type Props = {
   projectData: Project;
@@ -9,7 +8,7 @@ type Props = {
 
 const ProjectCard = (props: Props) => {
   const { projectData } = props;
-  const { title, description, technologies, link, image, period } = projectData;
+  const { title, description, link, image, period } = projectData;
 
   return (
     <Link
@@ -44,11 +43,6 @@ const ProjectCard = (props: Props) => {
         <p className="mb-4 line-clamp-3 text-gray-600 dark:text-gray-300">
           {description}
         </p>
-        <div className="flex flex-wrap gap-2">
-          {technologies.map((tech, index) => (
-            <TechTag key={index} tech={tech} />
-          ))}
-        </div>
       </div>
     </Link>
   );

@@ -49,7 +49,6 @@ const EXPERIENCES = [
 • OIDC와 OAuth 2.0 프로토콜에 대한 이해
 • 독립적인 문제 해결 능력과 자신감 향상
 • 완성했을 때의 희열과 큰 성장을 경험`,
-    type: "learning" as const,
   },
 ];
 
@@ -100,7 +99,6 @@ const CleverLogin = () => {
               key={index}
               title={story.title}
               content={story.content}
-              type={story.type}
             />
           ))}
         </div>

@@ -65,7 +65,6 @@ const EXPERIENCES = [
 • 신규 입사자 온보딩 시간 2주 → 3일로 단축
 • 컴포넌트 재사용률 증가, 중복 코드 감소
 • 개발 생산성 향상`,
-    type: "success" as const,
   },
   {
     title: "MUI에서 자체 디자인 시스템으로 전환",
@@ -87,7 +86,6 @@ MUI의 한계 :
 • 번들 사이즈 35% 감소 - 초기 로딩 속도 1.5초 개선
 • 완전한 디자인 자유도 달성
 `,
-    type: "challenge" as const,
   },
 ];
 
@@ -124,7 +122,6 @@ const CleverUI = () => {
               key={index}
               title={story.title}
               content={story.content}
-              type={story.type}
             />
           ))}
         </div>

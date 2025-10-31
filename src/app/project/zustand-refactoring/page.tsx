@@ -33,7 +33,6 @@ const EXPERIENCES = [
 • 앱 성능 저하 - 불필요한 리렌더링으로 버벅임 발생
 • 개발 생산성 저하 - 상태 추적 및 디버깅 시간 증가
 • 신규 개발자의 높은 러닝 커브`,
-    type: "challenge" as const,
   },
   {
     title: "Zustand 도입 및 마이그레이션",
@@ -70,7 +69,6 @@ Zustand 선택 이유 :
 • 적절한 도구 선택이 생산성과 성능에 직결된다
 • 마이그레이션은 점진적으로, 안정성 확보하며 진행해야 한다
 • DevTools의 중요성 - 디버깅 효율 극대화`,
-    type: "success" as const,
   },
 ];
 
@@ -115,7 +113,6 @@ const ZustandProject = () => {
               key={index}
               title={story.title}
               content={story.content}
-              type={story.type}
             />
           ))}
         </div>

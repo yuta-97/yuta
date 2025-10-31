@@ -70,7 +70,6 @@ const EXPERIENCES = [
 • 코드 리뷰 효율 35% 증가
 • 신규 인력의 빠른 적응 - 온보딩 기간 2주 단축
 • 코드 품질에 대한 공통 기준 확립`,
-    type: "challenge" as const,
   },
   {
     title: "개발 표준 정립 및 문서화",
@@ -94,7 +93,6 @@ const EXPERIENCES = [
 • 신규 입사자도 쉽게 따라할 수 있는 명확한 가이드
 • 코드 리뷰 시간 건당 30분 → 15분으로 단축
 • 스타일 논쟁 없이 기능과 로직에 집중할 수 있는 환경 조성`,
-    type: "success" as const,
   },
 ];
 
@@ -146,7 +144,6 @@ const SonarQubePage = () => {
               key={index}
               title={story.title}
               content={story.content}
-              type={story.type}
             />
           ))}
         </div>

@@ -50,7 +50,6 @@ const EXPERIENCES = [
 • IPC(Inter-Process Communication)를 활용한 데이터 전송
 • 대용량 파일 처리 시 UI 블로킹 방지 (Worker Thread 활용)
 • 자동 업데이트 기능으로 버전 관리 자동화`,
-    type: "learning" as const,
   },
   {
     title: "관리자 도구 UX 설계",
@@ -73,7 +72,6 @@ const EXPERIENCES = [
 • 백오피스 툴 성격의 관리자 도구라도 UX가 중요하다
 • 사용자 피드백을 반영한 지속적인 개선이 효과적이다
 `,
-    type: "challenge" as const,
   },
 ];
 
@@ -129,7 +127,6 @@ const CleverManager = () => {
               key={index}
               title={story.title}
               content={story.content}
-              type={story.type}
             />
           ))}
         </div>

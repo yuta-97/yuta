@@ -108,7 +108,6 @@ const CHALLENGES = [
 • E2E 테스트는 핵심 시나리오 위주로 작성하는 것이 효율적
 • 테스트를 염두해 두지 않은 설계는 유지보수를 어렵게 함
 • 적절한 테스트 커버리지 균형 - 모든 것을 테스트할 필요 없음`,
-    type: "success" as const,
   },
   {
     title: "Next.js Image 최적화 문제 해결",
@@ -123,7 +122,6 @@ const CHALLENGES = [
 • 썸네일이미지에 캐싱 적용으로 네트워크 비용 절감 및 성능 최적화
 
 성과: 더 이상 성능 이슈 없이 안정적인 서비스 운영`,
-    type: "challenge" as const,
   },
   {
     title: "다국어 서비스 구축 경험",
@@ -137,7 +135,6 @@ const CHALLENGES = [
 • 번역 누락 방지를 위한 자동화 검증 시스템 구축
 
 경험: 글로벌 서비스의 복잡성과 문화적 차이를 고려한 개발의 어려움`,
-    type: "learning" as const,
   },
   {
     title: "GraphQL 성능 최적화",
@@ -153,7 +150,6 @@ const CHALLENGES = [
 • 컴포넌트 레벨 코드 스플리팅으로 첫 요청 번들 사이즈 감소
 
 성과: 로딩 시간 3초 → 1.2초로 60% 개선, 불필요한 네트워크 요청 50% 감소`,
-    type: "challenge" as const,
   },
   {
     title: "REST API 상태 관리 라이브러리 추가 (Tanstack Query)",
@@ -180,7 +176,6 @@ const CHALLENGES = [
 • 코드 가독성 향상 - 선언적 데이터 페칭
 • 개발 생산성 향상 - DevTools로 쿼리 상태 실시간 모니터링
 • 에러 핸들링 일관성 확보`,
-    type: "success" as const,
   },
 ];
 
@@ -252,7 +247,6 @@ const CleverDent = () => {
               key={index}
               title={story.title}
               content={story.content}
-              type={story.type}
             />
           ))}
         </div>
