@@ -111,7 +111,7 @@ const EXPERIENCES = [
 const SCREENSHOTS = [
   {
     url: "/screenshots/dent-dashboard.png",
-    caption: "대시보드 - 에인 화면",
+    caption: "대시보드 - 메인 화면",
   },
   {
     url: "/screenshots/dent-patient-list.png",
@@ -143,6 +143,9 @@ const CleverDent = () => {
         subtitle="치과 관리 통합 플랫폼 - 메인 서비스"
         description="치과 운영에 필요한 모든 기능을 통합한 SaaS 플랫폼입니다. 예약 관리, 급여 시스템, 기공물 의뢰, 파일 관리 등 치과 업무의 디지털 전환을 지원합니다."
       />
+      <ProjectSection title="이미지">
+        <ScreenshotGallery screenshots={SCREENSHOTS} />
+      </ProjectSection>
 
       <ProjectSection title="주요 개발 기능">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
@@ -167,10 +170,6 @@ const CleverDent = () => {
             />
           ))}
         </div>
-      </ProjectSection>
-
-      <ProjectSection title="이미지">
-        <ScreenshotGallery screenshots={SCREENSHOTS} />
       </ProjectSection>
     </ProjectLayout>
   );
