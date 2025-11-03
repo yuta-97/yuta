@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ValueData } from ".";
 
 type Props = {
@@ -45,6 +46,37 @@ const ValueCard = (props: Props) => {
           </li>
         ))}
       </ul>
+      {value.relatedProjects && value.relatedProjects.length > 0 && (
+        <div className="mt-6 border-t border-gray-200 pt-4 dark:border-gray-700">
+          <p className="mb-2 text-xs font-semibold tracking-wide text-gray-500 uppercase dark:text-gray-400">
+            관련 프로젝트
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {value.relatedProjects.map((project, index) => (
+              <Link
+                key={index}
+                href={project.link}
+                className="inline-flex items-center rounded-lg bg-gray-100 px-3 py-1.5 text-sm font-medium text-gray-700 transition-colors duration-200 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
+              >
+                {project.title}
+                <svg
+                  className="ml-1 h-3 w-3"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

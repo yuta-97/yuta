@@ -6,6 +6,10 @@ type ValueData = {
   description: string;
   color: string;
   principles: string[];
+  relatedProjects?: {
+    title: string;
+    link: string;
+  }[];
 };
 
 const VALUES: ValueData[] = [
@@ -19,6 +23,11 @@ const VALUES: ValueData[] = [
       "반복 작업을 스크립트로 자동화",
       "개발 워크플로우 개선에 관심",
     ],
+    relatedProjects: [
+      { title: "E2E 테스트 자동화", link: "/project/e2e-test" },
+      { title: "Clever-Dent", link: "/project/clever-dent" },
+      { title: "Clever-Manager", link: "/project/clever-manager" },
+    ],
   },
   {
     title: "지속가능한 코드 작성",
@@ -30,6 +39,7 @@ const VALUES: ValueData[] = [
       "레거시 코드를 점진적으로 개선",
       "미래의 나와 동료를 위한 가독성 추구",
     ],
+    relatedProjects: [{ title: "SonarQube 도입", link: "/project/sonarqube" }],
   },
   {
     title: "기술적 도전을 즐기는 마음",
@@ -40,6 +50,11 @@ const VALUES: ValueData[] = [
       "MUI 한계 극복을 위한 자체 디자인 시스템 구축",
       "상태 관리 라이브러리 도입으로 복잡성 해결",
       "새로운 기술 도입 시 팀원들과 충분한 논의",
+    ],
+    relatedProjects: [
+      { title: "인증서버 구축", link: "/project/clever-login" },
+      { title: "Zustand 리팩토링", link: "/project/zustand-refactoring" },
+      { title: "공용 컴포넌트 라이브러리", link: "/project/clever-ui" },
     ],
   },
   {
@@ -52,6 +67,9 @@ const VALUES: ValueData[] = [
       "코드 리뷰를 통한 지식 공유 문화",
       "개발 경험 공유와 회고를 통한 학습",
     ],
+    relatedProjects: [
+      { title: "팀 개발 표준 정립", link: "/project/sonarqube" },
+    ],
   },
 ];
 
@@ -61,7 +79,7 @@ const Values = () => {
       id="philosophy"
       title="Values"
       subtitle="좋은 코드를 만들기 위해 지키는 원칙들을 소개합니다"
-      background="gray"
+      background="gradient"
     >
       <div className="grid gap-8 md:grid-cols-2">
         {VALUES.map((value, index) => (

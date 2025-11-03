@@ -1,5 +1,4 @@
 import Info from "./Info";
-import Skills from "./Skills";
 
 const About = () => {
   return (
@@ -17,9 +16,7 @@ const About = () => {
             고민합니다.
           </p>
         </div>
-
         <Info />
-        <Skills />
       </div>
     </section>
   );

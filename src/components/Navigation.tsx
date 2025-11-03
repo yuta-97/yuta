@@ -5,9 +5,9 @@ import Link from "next/link";
 
 const NAV_ITEMS = [
   { name: "Home", href: "/#home" },
+  { name: "Projects", href: "/#projects" },
   { name: "About", href: "/#about" },
   { name: "Values", href: "/#philosophy" },
-  { name: "Projects", href: "/#projects" },
   { name: "Contact", href: "/#contact" },
 ];
 const Navigation = () => {

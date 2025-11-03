@@ -1,46 +1,10 @@
 import {
-  FeatureCard,
   ProjectHeader,
   ProjectLayout,
   ProjectSection,
+  ScreenshotGallery,
   StoryCard,
-  TechStack,
 } from "@/components/Projects/common";
-
-const technologies = [
-  "SonarQube",
-  "TypeScript",
-  "ESLint",
-  "Prettier",
-  "GitHub Actions",
-];
-
-const FEATURES = [
-  {
-    title: "SonarQube 도입 주도",
-    description: "팀 내 코드 품질 관리를 위한 SonarQube 도입 기획 및 추진",
-    details:
-      "팀원들을 대상으로 SonarQube 필요성 설득 및 도입 계획 수립. 프로젝트별 Quality Gate 설정 기준 정의 및 코드 커버리지 목표 설정.",
-  },
-  {
-    title: "CI/CD 파이프라인 통합",
-    description: "GitHub Actions와 SonarQube 연동으로 자동화된 코드 품질 검사",
-    details:
-      "Pull Request 시 자동으로 코드 품질 분석이 실행되고 결과를 PR에 코멘트로 표시하는 워크플로우 구축.",
-  },
-  {
-    title: "개발 표준 문서화",
-    description: "팀 내 코딩 컨벤션과 개발 가이드라인 정립",
-    details:
-      "ESLint, Prettier 룰셋 정의 및 TypeScript 스타일 가이드 작성. 신규 입사자도 쉽게 따라할 수 있는 개발 표준 문서 제작.",
-  },
-  {
-    title: "레거시 코드 개선",
-    description: "기존 코드베이스의 기술 부채 해결 및 리팩토링",
-    details:
-      "SonarQube 분석 결과를 바탕으로 우선순위를 정해 단계적으로 코드 품질 개선. Code Smell 및 보안 취약점 수정.",
-  },
-];
 
 const EXPERIENCES = [
   {
@@ -70,7 +34,6 @@ const EXPERIENCES = [
 • 코드 리뷰 효율 35% 증가
 • 신규 인력의 빠른 적응 - 온보딩 기간 2주 단축
 • 코드 품질에 대한 공통 기준 확립`,
-    type: "challenge" as const,
   },
   {
     title: "개발 표준 정립 및 문서화",
@@ -94,7 +57,6 @@ const EXPERIENCES = [
 • 신규 입사자도 쉽게 따라할 수 있는 명확한 가이드
 • 코드 리뷰 시간 건당 30분 → 15분으로 단축
 • 스타일 논쟁 없이 기능과 로직에 집중할 수 있는 환경 조성`,
-    type: "success" as const,
   },
 ];
 
@@ -107,10 +69,16 @@ const SonarQubePage = () => {
         description="팀의 기술 부채 해결과 지속 가능한 개발을 위해 SonarQube를 도입하고 체계적인 코드 품질 관리 프로세스를 구축한 프로젝트입니다. 단순한 도구 도입을 넘어서 팀 문화 개선과 개발 생산성 향상까지 이끌어낸 경험을 공유합니다."
       />
 
-      <ProjectSection title="기술 스택">
-        <TechStack technologies={technologies} />
+      <ProjectSection title="">
+        <ScreenshotGallery
+          screenshots={[
+            {
+              url: "/screenshots/sonarqube-detail.png",
+              caption: "SonarQube 상세 Issue",
+            },
+          ]}
+        />
       </ProjectSection>
-
       <ProjectSection title="프로젝트 배경">
         <div className="prose dark:prose-invert max-w-none">
           <p className="mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
@@ -126,19 +94,6 @@ const SonarQubePage = () => {
         </div>
       </ProjectSection>
 
-      <ProjectSection title="주요 성과">
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-          {FEATURES.map(feature => (
-            <FeatureCard
-              key={feature.title}
-              title={feature.title}
-              description={feature.description}
-              details={feature.details}
-            />
-          ))}
-        </div>
-      </ProjectSection>
-
       <ProjectSection title="경험 및 성과">
         <div className="space-y-6">
           {EXPERIENCES.map((story, index) => (
@@ -146,7 +101,6 @@ const SonarQubePage = () => {
               key={index}
               title={story.title}
               content={story.content}
-              type={story.type}
             />
           ))}
         </div>

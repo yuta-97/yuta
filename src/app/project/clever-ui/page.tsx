@@ -2,37 +2,8 @@ import {
   ProjectLayout,
   ProjectHeader,
   ProjectSection,
-  TechStack,
-  KeyPoint,
   StoryCard,
 } from "@/components/Projects/common";
-
-const TECHNOLOGIES = [
-  "TypeScript",
-  "React.js",
-  "Storybook",
-  "Emotion",
-  "Styled-Components",
-];
-
-const KEYFEATURES = [
-  {
-    title: "경량화된 설계",
-    description: "각 컴포넌트는 최소한의 번들 크기로 최적화",
-  },
-  {
-    title: "State-less 아키텍처",
-    description: "외부 상태에 의존하지 않는 독립적인 컴포넌트 구조",
-  },
-  {
-    title: "개발자 친화적",
-    description: "TypeScript 지원으로 타입 안정성과 개발 생산성 향상",
-  },
-  {
-    title: "UI/UX & DX 균형",
-    description: "사용자 경험과 개발자 경험 모두를 고려한 설계",
-  },
-];
 
 const EXPERIENCES = [
   {
@@ -65,7 +36,6 @@ const EXPERIENCES = [
 • 신규 입사자 온보딩 시간 2주 → 3일로 단축
 • 컴포넌트 재사용률 증가, 중복 코드 감소
 • 개발 생산성 향상`,
-    type: "success" as const,
   },
   {
     title: "MUI에서 자체 디자인 시스템으로 전환",
@@ -87,7 +57,6 @@ MUI의 한계 :
 • 번들 사이즈 35% 감소 - 초기 로딩 속도 1.5초 개선
 • 완전한 디자인 자유도 달성
 `,
-    type: "challenge" as const,
   },
 ];
 
@@ -96,24 +65,21 @@ const CleverUI = () => {
     <ProjectLayout>
       <ProjectHeader
         title="CleverUI Design System"
-        subtitle="자체 제작 디자인 프레임워크 & 컴포넌트 라이브러리"
+        subtitle="자체 디자인 프레임워크 제작 & 컴포넌트 라이브러리"
         liveUrl="https://ui-story.dev2.vnclever.com/"
         description="기존 MUI 프레임워크의 최적화 문제와 커스터마이징의 한계를 극복하기 위해 자체 디자인 시스템을 구축한 프로젝트입니다. 각 컴포넌트를 가볍고 상태 비의존적(state-less)으로 설계하여 개발자 경험(DX)과 사용자 경험(UI/UX) 사이의 최적의 균형을 찾는 데 집중했습니다."
       />
 
-      <ProjectSection title="기술 스택">
-        <TechStack technologies={TECHNOLOGIES} />
-      </ProjectSection>
-
-      <ProjectSection title="주요 특징">
+      <ProjectSection title="배경 및 동기">
         <div className="space-y-4">
-          {KEYFEATURES.map((feature, index) => (
-            <KeyPoint
-              key={index}
-              title={feature.title}
-              description={feature.description}
-            />
-          ))}
+          <StoryCard
+            title="MUI 의 커스터마이징 한계"
+            content={`• MUI의 기본 스타일과 동작이 프로젝트 요구사항과 충돌
+• 디자인 토큰(색상, 타이포그래피 등) 변경에 제약
+• 불필요한 기능 포함으로 인한 번들 사이즈 증가
+• 브랜드 아이덴티티에 맞춘 유연한 디자인 구현 어려움
+`}
+          />
         </div>
       </ProjectSection>
 
@@ -124,7 +90,6 @@ const CleverUI = () => {
               key={index}
               title={story.title}
               content={story.content}
-              type={story.type}
             />
           ))}
         </div>

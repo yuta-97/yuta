@@ -5,17 +5,7 @@ import {
   ProjectSection,
   ScreenshotGallery,
   StoryCard,
-  TechStack,
 } from "@/components/Projects/common";
-
-const technologies = [
-  "TypeScript",
-  "React.js",
-  "Node.js",
-  "C#",
-  "Electron",
-  "MongoDB",
-];
 
 const FEATURES = [
   {
@@ -50,7 +40,6 @@ const EXPERIENCES = [
 • IPC(Inter-Process Communication)를 활용한 데이터 전송
 • 대용량 파일 처리 시 UI 블로킹 방지 (Worker Thread 활용)
 • 자동 업데이트 기능으로 버전 관리 자동화`,
-    type: "learning" as const,
   },
   {
     title: "관리자 도구 UX 설계",
@@ -73,7 +62,6 @@ const EXPERIENCES = [
 • 백오피스 툴 성격의 관리자 도구라도 UX가 중요하다
 • 사용자 피드백을 반영한 지속적인 개선이 효과적이다
 `,
-    type: "challenge" as const,
   },
 ];
 
@@ -105,10 +93,9 @@ const CleverManager = () => {
         description="Clever-Dent를 사용하는 여러 치과를 관리하는 대리점/법인을 위한 관리 시스템과 기존 서비스에서 새로운 플랫폼으로의 데이터 마이그레이션을 지원하는 도구들을 제작 했습니다."
       />
 
-      <ProjectSection title="기술 스택">
-        <TechStack technologies={technologies} />
+      <ProjectSection title="이미지">
+        <ScreenshotGallery screenshots={SCREEN_SHOTS} />
       </ProjectSection>
-
       <ProjectSection title="주요 개발 기능">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           {FEATURES.map(feature => (
@@ -129,13 +116,9 @@ const CleverManager = () => {
               key={index}
               title={story.title}
               content={story.content}
-              type={story.type}
             />
           ))}
         </div>
-      </ProjectSection>
-      <ProjectSection title="이미지">
-        <ScreenshotGallery screenshots={SCREEN_SHOTS} />
       </ProjectSection>
     </ProjectLayout>
   );
