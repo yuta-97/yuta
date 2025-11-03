@@ -18,7 +18,7 @@ const PROJECTS: Project[] = [
       "Clever-Dent의 핵심 기능에 대한 E2E 테스트 자동화를 구축하여 QA 효율성을 크게 향상시켰습니다.",
     tags: ["테스트 자동화", "협업", "생산성", "CI/CD 통합"],
     link: "/project/e2e-test",
-    period: "2025.08 ~ 2024.10",
+    period: "2025.08 ~ 2025.10",
   },
   {
     id: 2,

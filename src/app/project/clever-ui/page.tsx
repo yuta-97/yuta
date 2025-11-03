@@ -71,7 +71,7 @@ const CleverUI = () => {
       />
 
       <ProjectSection title="배경 및 동기">
-        <div className="spce-y-4">
+        <div className="space-y-4">
           <StoryCard
             title="MUI 의 커스터마이징 한계"
             content={`• MUI의 기본 스타일과 동작이 프로젝트 요구사항과 충돌
