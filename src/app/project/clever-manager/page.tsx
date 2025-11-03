@@ -5,17 +5,7 @@ import {
   ProjectSection,
   ScreenshotGallery,
   StoryCard,
-  TechStack,
 } from "@/components/Projects/common";
-
-const technologies = [
-  "TypeScript",
-  "React.js",
-  "Node.js",
-  "C#",
-  "Electron",
-  "MongoDB",
-];
 
 const FEATURES = [
   {
@@ -103,10 +93,9 @@ const CleverManager = () => {
         description="Clever-Dent를 사용하는 여러 치과를 관리하는 대리점/법인을 위한 관리 시스템과 기존 서비스에서 새로운 플랫폼으로의 데이터 마이그레이션을 지원하는 도구들을 제작 했습니다."
       />
 
-      <ProjectSection title="기술 스택">
-        <TechStack technologies={technologies} />
+      <ProjectSection title="이미지">
+        <ScreenshotGallery screenshots={SCREEN_SHOTS} />
       </ProjectSection>
-
       <ProjectSection title="주요 개발 기능">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           {FEATURES.map(feature => (
@@ -130,9 +119,6 @@ const CleverManager = () => {
             />
           ))}
         </div>
-      </ProjectSection>
-      <ProjectSection title="이미지">
-        <ScreenshotGallery screenshots={SCREEN_SHOTS} />
       </ProjectSection>
     </ProjectLayout>
   );

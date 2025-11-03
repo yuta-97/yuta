@@ -2,17 +2,8 @@ import {
   ProjectLayout,
   ProjectHeader,
   ProjectSection,
-  TechStack,
   StoryCard,
 } from "@/components/Projects/common";
-
-const TECHNOLOGIES = [
-  "React",
-  "TypeScript",
-  "Zustand",
-  "Context API",
-  "React DevTools",
-];
 
 const EXPERIENCES = [
   {
@@ -81,28 +72,34 @@ const ZustandProject = () => {
         description="복잡하게 중첩된 Context API 구조를 경량화된 Zustand로 전환하여 성능을 개선하고 개발 생산성을 높인 프로젝트입니다. 상태 흐름을 단순화하고 리렌더링을 최소화하여 더 나은 사용자 경험을 제공하게 되었습니다."
       />
 
-      <ProjectSection title="기술 스택">
-        <TechStack technologies={TECHNOLOGIES} />
-      </ProjectSection>
+      <ProjectSection title="배경 및 동기">
+        <div className="space-y-4">
+          <StoryCard
+            title="초기 상태관리 방식의 한계"
+            content={`기존 상태 관리 방식의 문제점과 개선 필요성 인식
 
-      <ProjectSection title="프로젝트 배경">
-        <div className="prose dark:prose-invert max-w-none">
-          <p className="mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
-            초기에는 React의 Context API와 useReducer를 활용하여 전역 상태
-            관리를 구현했습니다. 순수 React 내장 기능만으로도 충분할 것이라
-            판단했기 때문입니다.
-          </p>
-          <p className="mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
-            서비스가 성장하면서 관리해야 할 전역 상태가 증가했고, Context API
-            기반의 상태 관리는 한계를 보이기 시작했습니다. 여러 Context가
-            중첩되면서 코드 복잡도가 증가하고, 불필요한 리렌더링으로 성능 저하가
-            발생했습니다.
-          </p>
-          <p className="leading-relaxed text-gray-700 dark:text-gray-300">
-            이를 해결하기 위해 경량화되고 직관적인 Zustand를 도입하여 상태 관리
-            구조를 개선하고, 개발 생산성과 앱 성능을 모두 향상시킬 수
-            있었습니다.
-          </p>
+기존 구조 (Context API + useReducer):
+• 여러 Context가 중첩되어 Provider Hell 발생
+• 상태 변경 시 불필요한 컴포넌트까지 리렌더링
+• Reducer 로직이 복잡해지면서 유지보수 어려움
+• 상태 디버깅 어려움
+
+구체적 문제 사례 :
+• 전역 모달, 토스트 알림 상태가 여러 Context로 분산
+• 의사/환자 정보 Context 변경 시 관련 없는 컴포넌트도 리렌더링
+• 비동기 로직을 Reducer에서 처리하기 어려움
+• 앱 성능 저하 - 불필요한 리렌더링으로 로딩 타임 발생
+• 개발 생산성 저하 - 상태 추적 및 디버깅 시간 증가
+• 신규 개발자의 코드 파악 어려움`}
+          />
+          <StoryCard
+            title="왜 Zustand를 선택했나요?"
+            content={`• Flux 패턴과 유사한 API로 기존 개발자들의 적응이 용이했습니다.
+            • 필요한 상태만 구독하여 불필요한 리렌더링을 최소화할 수 있었습니다.
+            • Redux DevTools와의 호환성으로 상태 변화 추적과 디버깅이 쉬워졌습니다.
+            • 작은 번들 사이즈로 앱 성능에 미치는 영향이 적었습니다.
+          `}
+          />
         </div>
       </ProjectSection>
 

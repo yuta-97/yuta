@@ -24,8 +24,9 @@ const VALUES: ValueData[] = [
       "개발 워크플로우 개선에 관심",
     ],
     relatedProjects: [
-      { title: "Clever-Manager", link: "/project/clever-manager" },
+      { title: "E2E 테스트 자동화", link: "/project/e2e-test" },
       { title: "Clever-Dent", link: "/project/clever-dent" },
+      { title: "Clever-Manager", link: "/project/clever-manager" },
     ],
   },
   {
@@ -51,6 +52,7 @@ const VALUES: ValueData[] = [
       "새로운 기술 도입 시 팀원들과 충분한 논의",
     ],
     relatedProjects: [
+      { title: "인증서버 구축", link: "/project/clever-login" },
       { title: "Zustand 리팩토링", link: "/project/zustand-refactoring" },
       { title: "공용 컴포넌트 라이브러리", link: "/project/clever-ui" },
     ],
@@ -77,7 +79,7 @@ const Values = () => {
       id="philosophy"
       title="Values"
       subtitle="좋은 코드를 만들기 위해 지키는 원칙들을 소개합니다"
-      background="gray"
+      background="gradient"
     >
       <div className="grid gap-8 md:grid-cols-2">
         {VALUES.map((value, index) => (
