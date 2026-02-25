@@ -1,6 +1,6 @@
 # Yuta - Frontend Developer Portfolio
 
-프론트엔드 개발자 강주의 포트폴리오 웹사이트입니다.
+프론트엔드 개발자 Yuta의 포트폴리오 웹사이트입니다.
 
 ## Tech Stack
 
