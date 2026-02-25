@@ -43,7 +43,7 @@ const EXPERIENCES = [
   },
   {
     title: "관리자 도구 UX 설계",
-    content: `복잡한 관리 기능을 직관적으로 만드는 
+    content: `복잡한 관리 기능을 직관적으로 만드는 UX 설계 경험
 
 업무 비중 : 50% (기획 및 구현 참여)
 

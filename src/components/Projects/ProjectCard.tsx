@@ -21,7 +21,7 @@ const ProjectCard = (props: Props) => {
             src={image}
             width={200}
             height={100}
-            alt=""
+            alt={title}
             className="object-contain"
           />
         ) : (

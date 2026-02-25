@@ -46,7 +46,7 @@ const ScreenshotGallery = (props: Props) => {
       {/* Lightbox Modal */}
       {selectedImage !== null && (
         <div
-          className="bg-opacity-90 fixed inset-0 z-50 flex items-center justify-center bg-black p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
           onClick={() => setSelectedImage(null)}
         >
           <div className="relative w-full max-w-6xl">

@@ -1,7 +1,3 @@
-"use client";
-
-import { useRef } from "react";
-
 type Props = {
   percentage: number;
   label?: string;
@@ -9,7 +5,6 @@ type Props = {
 
 const ParticipationRate = (props: Props) => {
   const { percentage, label = "업무 기여도" } = props;
-  const progressRef = useRef<HTMLDivElement>(null);
 
   return (
     <div className="my-8 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 p-8 dark:from-gray-800 dark:to-gray-900">
@@ -23,7 +18,6 @@ const ParticipationRate = (props: Props) => {
       </div>
       <div className="relative h-4 overflow-visible rounded-full bg-gray-200 dark:bg-gray-700">
         <div
-          ref={progressRef}
           className="relative h-full overflow-hidden rounded-full bg-gradient-to-r from-blue-500 to-indigo-600"
           style={{
             width: `${percentage}%`,

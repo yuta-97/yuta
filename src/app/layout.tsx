@@ -15,11 +15,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Yuta - Portfolio",
-  description: "FE Developer & Creative Problem Solver",
-  keywords: ["portfolio", "developer", "web development", "next.js", "react"],
+  title: "Yuta - Frontend Developer Portfolio",
+  description:
+    "프론트엔드 개발자 강주의 포트폴리오입니다. React, TypeScript, Next.js 기반의 웹 서비스 개발 경험을 소개합니다.",
+  keywords: ["프론트엔드", "포트폴리오", "React", "TypeScript", "Next.js"],
   authors: [{ name: "Yuta" }],
   creator: "Yuta",
+  openGraph: {
+    title: "Yuta - Frontend Developer Portfolio",
+    description: "프론트엔드 개발자 강주의 포트폴리오입니다.",
+    type: "website",
+    locale: "ko_KR",
+  },
 };
 
 export default function RootLayout({
@@ -28,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="ko" className="scroll-smooth">
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-white text-gray-900 antialiased transition-colors duration-300 dark:bg-gray-900 dark:text-white`}
       >

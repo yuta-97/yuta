@@ -75,10 +75,10 @@ const ContactInfo = () => {
             href="https://yuta-97.github.io/"
             target="_blank"
             rel="noopener noreferrer"
-            className="transform rounded-lg bg-gray-800 p-3 transition-all duration-200 hover:scale-105 hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600"
-            title="GitHub"
+            className="transform rounded-lg bg-gray-800 p-3 text-sm font-medium text-white transition-all duration-200 hover:scale-105 hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600"
+            title="Blog"
           >
-            <div>Blog</div>
+            Blog
           </a>
           <a
             href="https://www.github.com/yuta-97"

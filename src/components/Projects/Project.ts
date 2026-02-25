@@ -51,7 +51,7 @@ const PROJECTS: Project[] = [
     period: "2024.09 ~ 2024.12",
   },
   {
-    id: 6,
+    id: 5,
     title: "Clever-Dent (메인 서비스)",
     image: "/dent-logo.svg",
     description:
@@ -61,7 +61,7 @@ const PROJECTS: Project[] = [
     period: "2021.06 ~ ",
   },
   {
-    id: 7,
+    id: 6,
     title: "Clever-Manager (Admin 서비스)",
     image: "/manager-logo.svg",
     description:
@@ -71,7 +71,7 @@ const PROJECTS: Project[] = [
     period: "2023.06 ~ 2024.08",
   },
   {
-    id: 8,
+    id: 7,
     title: "통합 로그인 서비스",
     image: "/screenshots/oidc.png",
     description:
