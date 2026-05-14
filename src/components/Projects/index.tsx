@@ -2,8 +2,8 @@
 
 import { useState, useMemo } from "react";
 import Section from "@/components/common/Section";
+import { PROJECTS } from "@/data/projects";
 import ProjectCard from "./ProjectCard";
-import { PROJECTS } from "./Project";
 
 const Projects = () => {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);

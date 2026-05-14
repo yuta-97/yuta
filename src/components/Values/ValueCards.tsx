@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ValueData } from ".";
+import type { ValueData } from "./data";
+import { cn } from "@/lib/cn";
 
 type Props = {
   value: ValueData;
@@ -24,10 +25,13 @@ const ValueCard = (props: Props) => {
   const { value } = props;
 
   return (
-    <div className="rounded-xl bg-white p-6 shadow-lg transition-shadow duration-300 hover:shadow-xl dark:bg-gray-900">
+    <div className="rounded-lg bg-white p-6 shadow-lg transition-shadow duration-300 hover:shadow-xl dark:bg-gray-900">
       <div className="mb-4 flex items-center">
         <div
-          className={`mr-4 h-3 w-3 rounded-full ${getColorClasses(value.color)}`}
+          className={cn(
+            "mr-4 h-3 w-3 rounded-full",
+            getColorClasses(value.color),
+          )}
         ></div>
         <h3 className="text-xl font-bold text-gray-900 dark:text-white">
           {value.title}

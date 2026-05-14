@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Project } from "./Project";
+import type { Project } from "@/data/projects";
+import { cn } from "@/lib/cn";
 
 type Props = {
   projectData: Project;
@@ -13,7 +14,10 @@ const ProjectCard = (props: Props) => {
   return (
     <Link
       href={link || "#"}
-      className={`group block overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-gray-900 ${link ? "cursor-pointer" : "cursor-default"}`}
+      className={cn(
+        "group block overflow-hidden rounded-lg bg-white shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-gray-900",
+        link ? "cursor-pointer" : "cursor-default",
+      )}
     >
       <div className="relative flex h-48 items-center justify-center overflow-hidden bg-gradient-to-r from-blue-400 to-purple-500">
         {image ? (

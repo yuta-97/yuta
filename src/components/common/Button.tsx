@@ -1,9 +1,5 @@
 import Link from "next/link";
-
-// 의존성 최소화 - 외부 라이브러리 대신 유틸리티 함수 직접 구현
-const cn = (...classes: (string | undefined | null | false)[]): string => {
-  return classes.filter(Boolean).join(" ");
-};
+import { cn } from "@/lib/cn";
 
 type Props = {
   children: React.ReactNode;
@@ -47,7 +43,7 @@ const Button = (props: Props) => {
   const sizes = {
     sm: "px-4 py-2 text-sm rounded-md",
     md: "px-6 py-3 text-base rounded-lg",
-    lg: "px-8 py-4 text-lg rounded-xl",
+    lg: "px-8 py-4 text-lg rounded-lg",
   };
 
   const classes = cn(

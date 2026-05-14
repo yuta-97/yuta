@@ -1,3 +1,5 @@
+import { cn } from "@/lib/cn";
+
 type Props = {
   title: string;
   children: React.ReactNode;
@@ -9,11 +11,16 @@ const ProjectSection = (props: Props) => {
 
   return (
     <div
-      className={`mb-8 rounded-xl bg-white p-8 shadow-lg dark:bg-gray-800 ${className}`}
+      className={cn(
+        "mb-8 rounded-lg bg-white p-8 shadow-lg dark:bg-gray-800",
+        className,
+      )}
     >
-      <h2 className="mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-        {title}
-      </h2>
+      {title && (
+        <h2 className="mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+          {title}
+        </h2>
+      )}
       {children}
     </div>
   );

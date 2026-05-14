@@ -1,3 +1,5 @@
+import { cn } from "@/lib/cn";
+
 type Props = {
   id?: string;
   title?: string;
@@ -26,7 +28,7 @@ const Section = (props: Props) => {
   return (
     <section
       id={id}
-      className={`py-20 ${backgroundClasses[background]} ${className}`}
+      className={cn("py-20", backgroundClasses[background], className)}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {(title || subtitle) && (

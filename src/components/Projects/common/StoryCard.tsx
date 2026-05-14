@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { cn } from "@/lib/cn";
 
 type Props = {
   title: string;
@@ -14,6 +15,7 @@ const StoryCard = (props: Props) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [needsCollapse, setNeedsCollapse] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
+  const shouldCollapse = !isExpanded && needsCollapse;
 
   useEffect(() => {
     if (contentRef.current && collapsible) {
@@ -23,8 +25,8 @@ const StoryCard = (props: Props) => {
   }, [content, collapsible, maxHeight]);
 
   return (
-    <div className="group relative rounded-xl border border-gray-200 bg-white p-6 transition-all duration-200 hover:border-blue-300 hover:shadow-lg dark:border-gray-700 dark:bg-gray-800/50 dark:hover:border-blue-600">
-      <div className="absolute top-0 left-0 h-full w-1 rounded-l-xl bg-gradient-to-b from-blue-400 to-indigo-500 opacity-60 transition-opacity group-hover:opacity-100"></div>
+    <div className="group relative rounded-lg border border-gray-200 bg-white p-6 transition-all duration-200 hover:border-blue-300 hover:shadow-lg dark:border-gray-700 dark:bg-gray-800/50 dark:hover:border-blue-600">
+      <div className="absolute top-0 left-0 h-full w-1 rounded-l-lg bg-gradient-to-b from-blue-400 to-indigo-500 opacity-60 transition-opacity group-hover:opacity-100"></div>
       <div className="pl-4">
         <h3 className="mb-4 text-lg font-medium text-gray-900 dark:text-white">
           {title}
@@ -32,11 +34,11 @@ const StoryCard = (props: Props) => {
         <div className="relative">
           <div
             ref={contentRef}
-            className={`space-y-3 overflow-hidden leading-relaxed whitespace-pre-line text-gray-700 transition-all duration-300 dark:text-gray-300 ${
-              !isExpanded && needsCollapse ? `max-h-[${maxHeight}px]` : ""
-            }`}
+            className={cn(
+              "space-y-3 overflow-hidden leading-relaxed whitespace-pre-line text-gray-700 transition-all duration-300 dark:text-gray-300",
+            )}
             style={
-              !isExpanded && needsCollapse
+              shouldCollapse
                 ? {
                     maxHeight: `${maxHeight}px`,
                     WebkitMaskImage:
