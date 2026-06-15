@@ -3,96 +3,90 @@
 import { useState } from "react";
 import Link from "next/link";
 import { NAV_ITEMS } from "@/data/navigation";
+import { LINKS, PROFILE } from "@/data/profile";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 right-0 left-0 z-50 border-b border-gray-200 bg-white/80 backdrop-blur-md dark:border-gray-700 dark:bg-gray-900/80">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
-          <div className="flex-shrink-0">
+    <nav
+      aria-label="주요 탐색"
+      className="fixed inset-x-0 top-0 z-50 border-b border-slate-200/80 bg-[#f6f7f2]/90 backdrop-blur-xl dark:border-slate-800/80 dark:bg-slate-950/90"
+    >
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Link
+          href="/"
+          className="rounded-md text-base font-semibold tracking-tight text-slate-950 focus-visible:ring-2 focus-visible:ring-cyan-600 focus-visible:outline-none dark:text-white"
+          onClick={() => setIsOpen(false)}
+        >
+          {PROFILE.name}
+          <span className="ml-2 font-normal text-slate-500 dark:text-slate-400">
+            Frontend
+          </span>
+        </Link>
+
+        <div className="hidden items-center gap-1 md:flex">
+          {NAV_ITEMS.map(item => (
             <Link
-              href="/"
-              className="text-xl font-bold text-gray-900 dark:text-white"
+              key={item.name}
+              href={item.href}
+              className="rounded-full px-3.5 py-2 text-sm font-medium text-slate-600 transition hover:bg-white hover:text-slate-950 focus-visible:ring-2 focus-visible:ring-cyan-600 focus-visible:outline-none dark:text-slate-300 dark:hover:bg-slate-900 dark:hover:text-white"
             >
-              Yuta
+              {item.name}
             </Link>
-          </div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              {NAV_ITEMS.map(item => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="rounded-md px-3 py-2 text-sm font-medium text-gray-700 transition-colors duration-200 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
-                >
-                  {item.name}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center rounded-md bg-gray-200 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:outline-none focus:ring-inset dark:bg-gray-800"
-            >
-              <span className="sr-only">Open main menu</span>
-              {!isOpen ? (
-                <svg
-                  className="block h-6 w-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  className="block h-6 w-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              )}
-            </button>
-          </div>
+          ))}
+          <a
+            href={LINKS.resume}
+            target="_blank"
+            rel="noreferrer"
+            className="ml-2 rounded-full bg-slate-950 px-4 py-2 text-sm font-semibold text-white transition hover:bg-cyan-700 focus-visible:ring-2 focus-visible:ring-cyan-600 focus-visible:ring-offset-2 focus-visible:outline-none dark:bg-white dark:text-slate-950 dark:hover:bg-cyan-200"
+          >
+            이력서
+            <span aria-hidden className="ml-1">
+              ↗
+            </span>
+          </a>
         </div>
+
+        <button
+          type="button"
+          aria-expanded={isOpen}
+          aria-controls="mobile-navigation"
+          aria-label={isOpen ? "메뉴 닫기" : "메뉴 열기"}
+          onClick={() => setIsOpen(current => !current)}
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 text-slate-700 focus-visible:ring-2 focus-visible:ring-cyan-600 focus-visible:outline-none md:hidden dark:border-slate-700 dark:text-slate-200"
+        >
+          <span aria-hidden className="text-xl leading-none">
+            {isOpen ? "×" : "≡"}
+          </span>
+        </button>
       </div>
 
-      {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden">
-          <div className="space-y-1 border-t border-gray-200 bg-white px-2 pt-2 pb-3 sm:px-3 dark:border-gray-700 dark:bg-gray-900">
+        <div
+          id="mobile-navigation"
+          className="border-t border-slate-200 bg-[#f6f7f2] px-4 py-4 md:hidden dark:border-slate-800 dark:bg-slate-950"
+        >
+          <div className="mx-auto grid max-w-7xl gap-1">
             {NAV_ITEMS.map(item => (
-              <a
+              <Link
                 key={item.name}
                 href={item.href}
-                className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+                className="rounded-xl px-4 py-3 font-medium text-slate-700 hover:bg-white dark:text-slate-200 dark:hover:bg-slate-900"
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
+            <a
+              href={LINKS.resume}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-2 rounded-xl bg-slate-950 px-4 py-3 text-center font-semibold text-white dark:bg-white dark:text-slate-950"
+              onClick={() => setIsOpen(false)}
+            >
+              이력서 열기 ↗
+            </a>
           </div>
         </div>
       )}

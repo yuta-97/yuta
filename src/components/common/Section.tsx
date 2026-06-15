@@ -2,16 +2,18 @@ import { cn } from "@/lib/cn";
 
 type Props = {
   id?: string;
+  eyebrow?: string;
   title?: string;
   subtitle?: string;
   className?: string;
   children: React.ReactNode;
-  background?: "default" | "gray" | "gradient";
+  background?: "default" | "muted" | "dark";
 };
 
 const Section = (props: Props) => {
   const {
     id,
+    eyebrow,
     title,
     subtitle,
     className = "",
@@ -19,27 +21,48 @@ const Section = (props: Props) => {
     background = "default",
   } = props;
   const backgroundClasses = {
-    default: "bg-white dark:bg-gray-900",
-    gray: "bg-gray-50 dark:bg-gray-800",
-    gradient:
-      "bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800",
+    default: "bg-[#fbfcf8] dark:bg-slate-950",
+    muted: "bg-[#eef1ec] dark:bg-slate-950",
+    dark: "bg-slate-950 text-white",
   };
+  const isDark = background === "dark";
 
   return (
     <section
       id={id}
-      className={cn("py-20", backgroundClasses[background], className)}
+      className={cn(
+        "scroll-mt-16 border-b border-slate-200 py-20 sm:py-28 dark:border-slate-800",
+        backgroundClasses[background],
+        className,
+      )}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {(title || subtitle) && (
-          <div className="mb-16 text-center">
+        {(eyebrow || title || subtitle) && (
+          <div className="mb-14 max-w-4xl sm:mb-16">
+            {eyebrow && (
+              <p className="mb-4 font-mono text-sm font-semibold tracking-wider text-cyan-700 uppercase dark:text-cyan-300">
+                {eyebrow}
+              </p>
+            )}
             {title && (
-              <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl dark:text-white">
+              <h2
+                className={cn(
+                  "text-3xl leading-tight font-semibold tracking-[-0.03em] sm:text-4xl",
+                  isDark ? "text-white" : "text-slate-950 dark:text-white",
+                )}
+              >
                 {title}
               </h2>
             )}
             {subtitle && (
-              <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-300">
+              <p
+                className={cn(
+                  "mt-6 max-w-2xl text-lg leading-8",
+                  isDark
+                    ? "text-slate-300"
+                    : "text-slate-600 dark:text-slate-300",
+                )}
+              >
                 {subtitle}
               </p>
             )}

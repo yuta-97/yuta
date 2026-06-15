@@ -1,99 +1,145 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import Image from "next/image";
-
-type Screenshot = {
-  url: string;
-  caption: string;
-};
+import type { Screenshot } from "@/data/case-studies";
 
 type Props = {
   screenshots: Screenshot[];
 };
 
-const ScreenshotGallery = (props: Props) => {
-  const { screenshots } = props;
+const ScreenshotGallery = ({ screenshots }: Props) => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const titleId = useId();
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (selectedImage === null) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    closeButtonRef.current?.focus();
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setSelectedImage(null);
+      if (event.key === "ArrowLeft") {
+        setSelectedImage(current =>
+          current === null
+            ? null
+            : current > 0
+              ? current - 1
+              : screenshots.length - 1,
+        );
+      }
+      if (event.key === "ArrowRight") {
+        setSelectedImage(current =>
+          current === null
+            ? null
+            : current < screenshots.length - 1
+              ? current + 1
+              : 0,
+        );
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [screenshots.length, selectedImage]);
 
   return (
     <>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <div className="grid gap-4 md:grid-cols-2">
         {screenshots.map((screenshot, index) => (
-          <div
-            key={index}
-            className="group relative cursor-pointer overflow-hidden rounded-lg border border-gray-200 transition-all hover:border-blue-500 dark:border-gray-700 dark:hover:border-blue-400"
+          <button
+            key={screenshot.url}
+            type="button"
             onClick={() => setSelectedImage(index)}
+            className="group overflow-hidden rounded-2xl border border-slate-200 bg-white text-left transition hover:-translate-y-0.5 hover:border-cyan-600 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-cyan-600 focus-visible:ring-offset-2 focus-visible:outline-none dark:border-slate-700 dark:bg-slate-900"
+            aria-label={`${screenshot.caption} 크게 보기`}
           >
-            <div className="relative aspect-video bg-gray-100 dark:bg-gray-700">
+            <span className="relative block aspect-video overflow-hidden bg-slate-100 dark:bg-slate-800">
               <Image
                 src={screenshot.url}
                 alt={screenshot.caption}
                 fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transition duration-500 group-hover:scale-[1.03]"
               />
-              <div className="absolute inset-0 bg-black opacity-0 transition-opacity group-hover:opacity-10" />
-            </div>
-            <div className="bg-white p-3 dark:bg-gray-800">
-              <p className="text-sm text-gray-600 dark:text-gray-400">
-                {screenshot.caption}
-              </p>
-            </div>
-          </div>
+            </span>
+            <span className="block px-4 py-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
+              {screenshot.caption}
+            </span>
+          </button>
         ))}
       </div>
 
-      {/* Lightbox Modal */}
       {selectedImage !== null && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
-          onClick={() => setSelectedImage(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby={titleId}
+          className="fixed inset-0 z-[70] flex items-center justify-center overflow-y-auto bg-slate-950/95 p-4 sm:p-6"
+          onMouseDown={event => {
+            if (event.currentTarget === event.target) setSelectedImage(null);
+          }}
         >
-          <div className="relative w-full max-w-6xl">
-            <button
-              className="absolute top-4 right-4 z-10 text-4xl text-white transition-colors hover:text-gray-300"
-              onClick={() => setSelectedImage(null)}
-              aria-label="닫기"
-            >
-              ×
-            </button>
-            <div className="relative aspect-video">
+          <div className="my-auto w-full max-w-6xl py-2">
+            <div className="mb-4 flex items-center justify-between gap-4 text-white">
+              <h2 id={titleId} className="font-semibold">
+                {screenshots[selectedImage].caption}
+              </h2>
+              <button
+                ref={closeButtonRef}
+                type="button"
+                onClick={() => setSelectedImage(null)}
+                className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/30 text-2xl hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:outline-none"
+                aria-label="이미지 크게 보기 닫기"
+              >
+                ×
+              </button>
+            </div>
+
+            <div className="relative h-[65vh] max-h-[720px] min-h-64 overflow-hidden rounded-xl bg-black">
               <Image
                 src={screenshots[selectedImage].url}
                 alt={screenshots[selectedImage].caption}
                 fill
+                sizes="100vw"
                 className="object-contain"
               />
             </div>
-            <p className="mt-4 text-center text-lg text-white">
-              {screenshots[selectedImage].caption}
-            </p>
-            {/* Navigation Buttons */}
-            <div className="mt-4 flex justify-between">
+
+            <div className="mt-4 flex items-center justify-between gap-4">
               <button
-                className="rounded bg-gray-700 px-4 py-2 text-white hover:bg-gray-600 disabled:cursor-not-allowed disabled:opacity-50"
-                onClick={e => {
-                  e.stopPropagation();
-                  setSelectedImage(prev =>
-                    prev! > 0 ? prev! - 1 : screenshots.length - 1,
-                  );
-                }}
-                aria-label="이전 이미지"
+                type="button"
+                onClick={() =>
+                  setSelectedImage(current =>
+                    current !== null && current > 0
+                      ? current - 1
+                      : screenshots.length - 1,
+                  )
+                }
+                className="rounded-full border border-white/30 px-4 py-2 text-sm font-semibold text-white hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:outline-none"
               >
                 ← 이전
               </button>
-              <span className="self-center text-white">
+              <span className="text-sm text-slate-300">
                 {selectedImage + 1} / {screenshots.length}
               </span>
               <button
-                className="rounded bg-gray-700 px-4 py-2 text-white hover:bg-gray-600 disabled:cursor-not-allowed disabled:opacity-50"
-                onClick={e => {
-                  e.stopPropagation();
-                  setSelectedImage(prev =>
-                    prev! < screenshots.length - 1 ? prev! + 1 : 0,
-                  );
-                }}
-                aria-label="다음 이미지"
+                type="button"
+                onClick={() =>
+                  setSelectedImage(current =>
+                    current !== null && current < screenshots.length - 1
+                      ? current + 1
+                      : 0,
+                  )
+                }
+                className="rounded-full border border-white/30 px-4 py-2 text-sm font-semibold text-white hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:outline-none"
               >
                 다음 →
               </button>

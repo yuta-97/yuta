@@ -6,10 +6,6 @@
   "printWidth": 80,
   "useTabs": false,
   "semi": true,
-  "importOrder": ["^[./]"],
-  "importOrderSortSpecifiers": true,
-  "plugins": [
-    "prettier-plugin-tailwindcss"
-  ],
-  "tailwindFunctions": ["mc"]
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "tailwindFunctions": ["cn"]
 }

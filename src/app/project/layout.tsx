@@ -8,7 +8,9 @@ export default function ProjectLayout({
   return (
     <div className="min-h-screen">
       <Navigation />
-      <main className="pt-16">{children}</main>
+      <main id="main-content" className="pt-16">
+        {children}
+      </main>
     </div>
   );
 }

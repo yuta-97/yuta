@@ -1,38 +1,41 @@
-# Yuta - Frontend Developer Portfolio
+# Kangju Heo - Frontend Engineer Portfolio
 
-프론트엔드 개발자 Yuta의 포트폴리오 웹사이트입니다.
+허강주의 경력과 문제 해결 사례를 소개하는 포트폴리오입니다.
 
-## Tech Stack
+## Stack
 
-- **Framework**: Next.js 15 (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS 4
-- **Deployment**: Vercel
-- **Analytics**: Vercel Analytics & Speed Insights
-- **Email**: EmailJS
+- Next.js 16 App Router
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- Vercel Analytics / Speed Insights
 
-## Project Structure
+## Structure
 
-```
+```text
 src/
-├── app/                    # Next.js App Router
-│   ├── page.tsx            # 메인 페이지
-│   └── project/            # 프로젝트 상세 페이지
+├── app/
+│   ├── page.tsx
+│   └── project/[slug]/page.tsx
 ├── components/
-│   ├── Hero/               # Hero 섹션
-│   ├── About/              # 자기소개
-│   ├── Projects/           # 프로젝트 목록 및 공통 컴포넌트
-│   ├── Values/             # 개발 가치관
-│   ├── Contacts/           # 연락처 및 이메일 폼
-│   └── common/             # 공통 UI 컴포넌트 (Button, Section, Icons)
-└── ...
+│   ├── About/
+│   ├── Experience/
+│   ├── Hero/
+│   ├── Projects/
+│   ├── Values/
+│   └── Contacts/
+└── data/
+    ├── case-studies.ts
+    └── profile.ts
 ```
 
-## Getting Started
+프로젝트 상세 페이지는 `src/data/case-studies.ts`를 단일 원본으로 사용합니다.
+
+## Development
 
 ```bash
-pnpm install
-pnpm dev
+npm install
+npm run dev
 ```
 
-[http://localhost:3000](http://localhost:3000)에서 확인할 수 있습니다.
+로컬 주소는 [http://localhost:3000](http://localhost:3000)입니다.

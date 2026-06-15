@@ -1,9 +1,9 @@
 const NAV_ITEMS = [
-  { name: "Home", href: "/#home" },
-  { name: "About", href: "/#about" },
-  { name: "Projects", href: "/#projects" },
-  { name: "Values", href: "/#philosophy" },
-  { name: "Contact", href: "/#contact" },
+  { name: "소개", href: "/#about" },
+  { name: "경력", href: "/#experience" },
+  { name: "사례", href: "/#projects" },
+  { name: "원칙", href: "/#principles" },
+  { name: "연락", href: "/#contact" },
 ] as const;
 
 export { NAV_ITEMS };

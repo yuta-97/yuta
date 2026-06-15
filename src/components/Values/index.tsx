@@ -5,14 +5,15 @@ import { VALUES } from "./data";
 const Values = () => {
   return (
     <Section
-      id="philosophy"
-      title="Values"
-      subtitle="좋은 코드를 만들기 위해 지키는 원칙들을 소개합니다"
-      background="gradient"
+      id="principles"
+      eyebrow="Principles"
+      title="좋은 코드는 혼자 빛나기보다, 다음 일을 쉽게 만듭니다"
+      subtitle="기술적 선택이 사용자와 동료, 그리고 다음 변경에 어떤 영향을 남기는지까지 생각합니다."
+      background="muted"
     >
-      <div className="grid gap-8 md:grid-cols-2">
+      <div className="grid gap-6 lg:grid-cols-3">
         {VALUES.map((value, index) => (
-          <ValueCard key={index} value={value} />
+          <ValueCard key={value.title} value={value} index={index} />
         ))}
       </div>
     </Section>
